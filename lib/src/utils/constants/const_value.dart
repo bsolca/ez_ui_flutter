@@ -5,6 +5,9 @@ class ConstValue {
   /// Animation duration.
   static const Duration animationDuration = Duration(milliseconds: 300);
 
+  /// Density-independent Pixels 0.5.
+  static const double dp05 = 0.5;
+
   /// Density-independent Pixels 1.0.
   static const double dp1 = 1;
 
@@ -14,6 +17,9 @@ class ConstValue {
   /// Density-independent Pixels 8.0.
   static const double dp8 = 8;
 
+  /// Density-independent Pixels 12.0.
+  static const double dp12 = 12;
+
   /// Density-independent Pixels 16.0.
   static const double dp16 = 16;
 
@@ -22,6 +28,12 @@ class ConstValue {
 
   /// Density-independent Pixels 32.0.
   static const double dp32 = 32;
+
+  /// Density-independent Pixels 36.0.
+  static const double dp36 = 36;
+
+  /// Density-independent Pixels 40.0.
+  static const double dp40 = 40;
 
   /// Density-independent Pixels 48.0.
   static const double dp48 = 48;

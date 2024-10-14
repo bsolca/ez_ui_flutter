@@ -13,6 +13,8 @@ dependencies:
   country_flags: ^3.0.0
   dropdown_button2: ^2.3.9
   easy_localization: ^3.0.3
+  email_validator: ^3.0.0
+  file_picker: ^8.1.2
   flutter:
     sdk: flutter
   flutter_animate: ^4.3.0
@@ -26,12 +28,14 @@ dependencies:
   hive_flutter: ^1.1.0
   intl: any
   json_annotation: ^4.8.1
+  phone_numbers_parser: ^9.0.1
   quick_log: ^5.3.1
   responsive_grid_list: ^1.4.0
   riverpod_annotation: ^2.3.3
   rxdart: ^0.28.0
   share_plus: ^10.0.2
   short_uuids: ^2.0.0
+  super_drag_and_drop: ^0.7.0
   vector_math: ^2.1.4
   web_smooth_scroll: ^1.1.0
 

@@ -16,7 +16,7 @@ class EzSidebarConsts {
 
   /// Global settings for the sidebar widget
   static const double sidebarWidth = 260;
-  static const double popoverWidth = sidebarWidth - ConstValue.dp32;
+  static const double popoverWidth = sidebarWidth - ConstValue.dp16;
   static const Offset popoverOffset = Offset(0, ConstValue.dp4);
   static const Duration animationDuration = Duration(milliseconds: 200);
 
@@ -30,10 +30,6 @@ class EzSidebarConsts {
 
   static Color getPopoverBorderColor(ColorScheme colorScheme) {
     return ConstLayout.getMainBorderColor(colorScheme).withOpacity(0.95);
-  }
-
-  static Color getDividerColor(ColorScheme colorScheme) {
-    return colorScheme.inverseSurface.withAlpha(_dividerColorOpacity);
   }
 
   static Color getSidebarBackgroundColor(ColorScheme colorScheme) {
@@ -64,24 +60,17 @@ class EzSidebarConsts {
   // Padding and Margins
   // ************
 
-  static const EdgeInsets sidebarPadding = EdgeInsets.symmetric(vertical: 8);
+  static const EdgeInsets sidebarPadding = EdgeInsets.symmetric(
+    vertical: 8,
+  );
 
   static const EdgeInsets horizontalPadding = EdgeInsets.symmetric(
     horizontal: ConstValue.dp8,
   );
 
-  static const EdgeInsets allPadding = EdgeInsets.symmetric(
-    horizontal: ConstValue.dp8,
-    vertical: ConstValue.dp16,
-  );
-
   static const EdgeInsets contentPadding = EdgeInsets.symmetric(
     horizontal: ConstValue.dp16,
     vertical: ConstValue.dp8,
-  );
-
-  static const EdgeInsets sidebarItemIconPadding = EdgeInsets.only(
-    right: ConstValue.dp16,
   );
 
   static const EdgeInsets headerPadding = EdgeInsets.all(ConstValue.dp16);
@@ -96,7 +85,6 @@ class EzSidebarConsts {
   // ************
 
   static const double dividerThickness = ConstValue.dp1;
-  static const int _dividerColorOpacity = 20;
 
   // ************
   // Sidebar Item
@@ -125,5 +113,5 @@ class EzSidebarConsts {
   // Avatar
   // ***************
 
-  static const double avatarSize = 36;
+  static const double avatarSize = ConstValue.dp36;
 }

@@ -7,7 +7,7 @@ part of 'user_settings_brightness_controller.codegen.dart';
 // **************************************************************************
 
 String _$userSettingsBrightnessControllerHash() =>
-    r'1004220607a325ca8f60d8c34c1643c8c1fbc4f8';
+    r'b913ea581d86c9d7be6c36b53fc5c14febf9bb85';
 
 /// Controller the [UserSettings].
 ///

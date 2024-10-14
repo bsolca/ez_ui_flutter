@@ -1,10 +1,12 @@
 // ez_sidebar_header.dart
 import 'package:flutter/material.dart';
+import 'package:impostor/src/shared/ez_divider/ez_divider.dart';
 import 'package:impostor/src/shared/ez_icon/hero_icon_icons.dart';
+import 'package:impostor/src/shared/ez_item/ez_sidebar_item.dart';
+import 'package:impostor/src/shared/ez_popover/ez_popover.dart';
 import 'package:impostor/src/shared/ez_sidebar/ez_sidebar_consts.dart';
 import 'package:impostor/src/shared/ez_sidebar/model/ez_sidebar_header_data.codegen.dart';
 import 'package:impostor/src/shared/ez_sidebar/model/ez_sidebar_popover_item_data.codegen.dart';
-import 'package:impostor/src/shared/ez_sidebar/widgets/ez_sidebar_popover.dart';
 import 'package:impostor/src/shared/squircle/squircle.dart';
 
 /// A [EzSidebarHeader] widget that displays the header section of the sidebar.
@@ -101,10 +103,22 @@ class EzSidebarHeader extends StatelessWidget {
             overlayColor: WidgetStateProperty.all(
               EzSidebarConsts.getSidebarItemOverlayColor(colorScheme),
             ),
-            child: EzSidebarPopover(
+            child: EzPopover(
+              width: EzSidebarConsts.popoverWidth,
               controller: menuController,
               offset: EzSidebarConsts.popoverOffset,
-              items: _data.items,
+              items: _data.items.map((item) {
+                if (item is EzRegularSidebarPopoverItemData) {
+                  return EzItem(
+                    text: item.text,
+                    icon: item.icon,
+                    svgPath: item.svgPath,
+                    isSelected: false,
+                    onTap: item.onTap,
+                  );
+                }
+                return const EzDivider();
+              }).toList(),
               child: Padding(
                 padding: EzSidebarConsts.footerPadding,
                 child: Row(

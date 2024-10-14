@@ -10,6 +10,7 @@ import 'package:impostor/src/shared/ez_sidebar/model/ez_sidebar_item_data.codege
 import 'package:impostor/src/shared/ez_sidebar/model/ez_sidebar_popover_item_data.codegen.dart';
 import 'package:impostor/src/shared/ez_sidebar_layout/ez_sidebar_layout.dart';
 import 'package:impostor/src/utils/extension/widget_ref_extension.dart';
+import 'package:impostor/src/utils/routing/go_router_provider.codegen.dart';
 
 /// Sidebar widget of the dashboard app.
 @immutable
@@ -78,29 +79,34 @@ class Sidebar extends ConsumerWidget {
           onTap: () => context.go('/'),
         ),
         EzSidebarItemData.regular(
-          text: ref.loc.settings,
+          text: ref.loc.settingScreenSettings,
           icon: HeroIcon.adjustmentsHorizontal,
-          onTap: () => context.go('/settings'),
+          onTap: () => context.goNamed(AppRoute.settingsUserProfile.name),
         ),
         EzSidebarItemData.regular(
           text: ref.loc.profile,
           icon: HeroIcon.userCircle,
-          onTap: () => context.go('/profile'),
+          onTap: () => context.goNamed(AppRoute.settingsUserProfile.name),
         ),
         // Add heading
         EzSidebarItemData.heading(text: ref.loc.users),
         EzSidebarItemData.regular(
           text: ref.loc.users,
           icon: HeroIcon.users,
-          onTap: () => context.go('/users'),
+          onTap: () => context.goNamed(AppRoute.usersUsers.name),
         ),
         // add groups
         EzSidebarItemData.regular(
           text: ref.loc.groups,
           icon: HeroIcon.userGroup,
-          onTap: () => context.go('/groups'),
+          onTap: () => context.goNamed(AppRoute.usersGroups.name),
         ),
-
+        const EzSidebarItemData.heading(text: 'Tools'),
+        EzSidebarItemData.regular(
+          text: 'Color Scheme Preview',
+          icon: HeroIcon.userGroup,
+          onTap: () => context.goNamed(AppRoute.colorSchemePreview.name),
+        ),
         SidebarItemLanguage.build(ref, context),
         SidebarItemBrightness.build(ref, context),
       ],

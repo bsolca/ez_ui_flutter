@@ -15,7 +15,11 @@ class EzSidebarLayoutConsts {
   static const EdgeInsets sidebarPadding = EzSidebarConsts.sidebarPadding;
 
   /// Content container margin
-  static const EdgeInsets contentMargin = EdgeInsets.all(8);
+  static const EdgeInsets contentMargin = EdgeInsets.only(
+    top: 8,
+    bottom: 8,
+    right: 8,
+  );
 
   /// Content container border radius
   static const double contentBorderRadius = 10;
@@ -30,7 +34,7 @@ class EzSidebarLayoutConsts {
   // Colors
   // ***************
 
-  /// Returns the background color of the sidebar layout based on the color scheme.
+  /// Returns the background color of layout based on the color scheme.
   static Color getSidebarBackgroundColor(ColorScheme colorScheme) {
     return ConstLayout.getSecondaryBackgroundColor(colorScheme);
   }

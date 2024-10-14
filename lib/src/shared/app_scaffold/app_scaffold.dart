@@ -16,23 +16,6 @@ class AppScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      // appBar: PreferredSize(
-      //   preferredSize: const Size.fromHeight(kToolbarHeight),
-      //   child: Padding(
-      //     padding: const EdgeInsets.only(
-      //       top: ConstLayout.spacer,
-      //       right: ConstLayout.spacer,
-      //     ),
-      //     child: AppBar(
-      //       actions: const [
-      //         Flexible(child: UserSettingsDropDownLanguage()),
-      //         Flexible(child: UserSettingsDropDownBrightness()),
-      //       ].withSpaceBetween(
-      //         width: ConstLayout.spacer,
-      //       ),
-      //     ),
-      //   ),
-      // ),
       body: Sidebar(child: body),
     );
   }

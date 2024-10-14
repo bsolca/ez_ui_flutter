@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:impostor/src/shared/sub_header/sub_header.dart';
+import 'package:impostor/src/utils/constants/const_value.dart';
 
 enum _HeaderSize {
   displaySmall,
@@ -38,17 +39,24 @@ class EzHeader extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final medium = Theme.of(context).textTheme.displayMedium;
-    final small = Theme.of(context).textTheme.displaySmall;
+    final medium = Theme.of(context).textTheme.titleMedium  ;
+    final small = Theme.of(context).textTheme.titleSmall;
     final subText = this.subText;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          softWrap: true,
-          style: _size == _HeaderSize.displayMedium ? medium : small,
-          text,
+        ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: ConstValue.dp36),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              softWrap: true,
+              style: _size == _HeaderSize.displayMedium ? medium : small,
+              text,
+            ),
+          ),
         ),
         if (subText != null) SubHeader(subText),
       ],

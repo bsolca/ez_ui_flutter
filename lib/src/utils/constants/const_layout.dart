@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:flutter/material.dart';
+import 'package:impostor/src/shared/squircle/squircle.dart';
 import 'package:impostor/src/utils/constants/const_value.dart';
 
 class ConstLayout {
@@ -16,6 +17,7 @@ class ConstLayout {
   static const double borderSize = ConstValue.dp1;
   static const double borderRadiusSmall = ConstValue.dp8;
   static const double borderRadius = ConstValue.dp16;
+  static const double cornerSmoothing = ConstValue.dp05;
 
   // Button and Icon Sizes
   static const double buttonHeight = ConstValue.dp48;
@@ -34,7 +36,8 @@ class ConstLayout {
   static const double avatarExtraSmallSize = ConstValue.dp48;
   static const double maxPlayerCardWidthSize = avatarMediumSize * 3;
 
-  // Medal Sizes
+  // Sizes
+  static const double itemHeight = ConstValue.dp40;
   static const double medalSize = ConstValue.dp48;
 
   // Colors
@@ -52,4 +55,17 @@ class ConstLayout {
       colorScheme.brightness == Brightness.dark
           ? colorScheme.surface
           : colorScheme.surfaceContainer;
+
+  // Radius
+  static const double itemBorderRadius = ConstValue.dp8;
+  static const double itemBorderSmoothing = 0.4;
+
+  static ShapeBorder getShapeBorder() {
+    return SmoothRectangleBorder(
+      borderRadius: SmoothBorderRadius(
+        cornerRadius: itemBorderRadius,
+        cornerSmoothing: itemBorderSmoothing,
+      ),
+    );
+  }
 }

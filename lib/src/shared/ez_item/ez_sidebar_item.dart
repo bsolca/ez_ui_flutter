@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:impostor/src/shared/ez_sidebar/ez_sidebar_consts.dart';
+import 'package:impostor/src/shared/ez_item/ez_item_const.dart';
 import 'package:impostor/src/shared/squircle/squircle.dart';
+import 'package:impostor/src/utils/constants/const_layout.dart';
 
-/// A [EzSidebarItem] widget that represents a single item in the sidebar.
+/// A [EzItem] widget that represents a single item in the sidebar.
 ///
 /// This widget displays an optional icon, text, and indicates selection status.
 /// It handles tap interactions to notify when the item is selected.
 /// It also provides hover and splash effects for better user interaction.
-class EzSidebarItem extends StatefulWidget {
-  /// Creates a [EzSidebarItem] widget.
+class EzItem extends StatefulWidget {
+  /// Creates a [EzItem] widget.
   ///
   /// The [text], [isSelected], and [onTap] parameters are required.
   /// The [icon] parameter is optional and can be used to display an icon.
-  const EzSidebarItem({
+  const EzItem({
     super.key,
     required this.text,
     required this.isSelected,
@@ -38,10 +39,10 @@ class EzSidebarItem extends StatefulWidget {
   final String? svgPath;
 
   @override
-  State<EzSidebarItem> createState() => _EzSidebarItemState();
+  State<EzItem> createState() => _EzItemState();
 }
 
-class _EzSidebarItemState extends State<EzSidebarItem> {
+class _EzItemState extends State<EzItem> {
   bool _isHovered = false;
 
   @override
@@ -53,11 +54,11 @@ class _EzSidebarItemState extends State<EzSidebarItem> {
     // Determine the icon color based on hover and selection states
     Color iconColor;
     if (_isHovered) {
-      iconColor = EzSidebarConsts.getSidebarItemIconHoverColor(colorScheme);
+      iconColor = EzItemConsts.getSidebarItemIconHoverColor(colorScheme);
     } else if (widget.isSelected) {
-      iconColor = EzSidebarConsts.getSidebarItemIconSelectedColor(colorScheme);
+      iconColor = EzItemConsts.getSidebarItemIconSelectedColor(colorScheme);
     } else {
-      iconColor = EzSidebarConsts.getSidebarItemIconDefaultColor(colorScheme);
+      iconColor = EzItemConsts.getSidebarItemIconDefaultColor(colorScheme);
     }
 
     return MouseRegion(
@@ -65,15 +66,15 @@ class _EzSidebarItemState extends State<EzSidebarItem> {
       onExit: (_) => setState(() => _isHovered = false),
       cursor: SystemMouseCursors.click,
       child: AnimatedContainer(
-        duration: EzSidebarConsts.animationDuration,
+        duration: EzItemConsts.animationDuration,
         decoration: ShapeDecoration(
-          shape: EzSidebarConsts.getSidebarItemShapeBorder(),
+          shape: ConstLayout.getShapeBorder(),
         ),
         child: ClipSmoothRect(
           radius: const SmoothBorderRadius.all(
             SmoothRadius(
-              cornerRadius: EzSidebarConsts.itemBorderRadius,
-              cornerSmoothing: EzSidebarConsts.itemBorderSmoothing,
+              cornerRadius: ConstLayout.itemBorderRadius,
+              cornerSmoothing: ConstLayout.itemBorderSmoothing,
             ),
           ),
           child: Material(
@@ -82,35 +83,35 @@ class _EzSidebarItemState extends State<EzSidebarItem> {
               onTap: widget.onTap,
               splashFactory: NoSplash.splashFactory,
               overlayColor: WidgetStateProperty.all(
-                EzSidebarConsts.getSidebarItemOverlayColor(colorScheme),
+                EzItemConsts.getSidebarItemOverlayColor(colorScheme),
               ),
               child: Padding(
-                padding: EzSidebarConsts.contentPadding,
+                padding: EzItemConsts.contentPadding,
                 // Using contentPadding here
                 child: Row(
                   children: [
                     if (svgPath != null)
                       Padding(
-                        padding: EzSidebarConsts.sidebarItemIconPadding,
+                        padding: EzItemConsts.itemIconPadding,
                         child: SvgPicture.asset(
                           svgPath,
-                          width: EzSidebarConsts.sidebarItemIconSize,
+                          width: EzItemConsts.sidebarItemIconSize,
                         ),
                       ),
                     if (icon != null)
                       Padding(
-                        padding: EzSidebarConsts.sidebarItemIconPadding,
+                        padding: EzItemConsts.itemIconPadding,
                         child: Icon(
                           icon,
                           color: iconColor,
-                          size: EzSidebarConsts.sidebarItemIconSize,
+                          size: EzItemConsts.sidebarItemIconSize,
                         ),
                       ),
                     Text(
                       widget.text,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: EzSidebarConsts.sidebarItemTextStyle,
+                      style: EzItemConsts.sidebarItemTextStyle,
                     ),
                   ],
                 ),
